@@ -10,9 +10,12 @@ public class Cellphone extends Product implements java.io.Serializable {
 
     private static final long serialVersionUID = 0L;
 
+    // needed for Product
     private Integer id;
     private String name;
     private String code;
+
+    // needed for Cellphone
     private String model;
     private String brand;
 

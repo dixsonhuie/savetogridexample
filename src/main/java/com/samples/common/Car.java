@@ -10,10 +10,14 @@ public class Car extends Product implements java.io.Serializable {
 
     private static final long serialVersionUID = 0L;
 
+    // needed for Product
     private Integer id;
     private String name;
     private String code;
+
+    // needed for Car
     private String model;
+    private String make;
 
     public Car() {}
 
@@ -55,6 +59,14 @@ public class Car extends Product implements java.io.Serializable {
         this.model = model;
     }
 
+    public String getMake() {
+        return make;
+    }
+
+    public void setMake(String make) {
+        this.make = make;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -63,11 +75,12 @@ public class Car extends Product implements java.io.Serializable {
         return Objects.equals(id, car.id) &&
                 Objects.equals(name, car.name) &&
                 Objects.equals(code, car.code) &&
-                Objects.equals(model, car.model);
+                Objects.equals(model, car.model) &&
+                Objects.equals(make, car.make);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, code, model);
+        return Objects.hash(id, name, code, model, make);
     }
 }
