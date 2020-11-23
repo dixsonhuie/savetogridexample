@@ -1,7 +1,8 @@
 package com.samples.ie
 
 
-import com.samples.common.Product
+import com.samples.common.{Car, Cellphone, Product}
+
 import org.apache.spark
 import org.apache.spark.SparkConf
 import org.apache.spark.sql.SparkSession
