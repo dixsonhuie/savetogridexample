@@ -40,9 +40,20 @@ object ReadFromGridExample {
     val rdd = sc.gridRdd[Product]()
 
     val javaRdd  = rdd.toJavaRDD()
+    
+    println("rdd.count is: " + rdd.count())
 
+    println("About to print rdd")
     rdd.collect().foreach(p => println(p.getName()))
+    
+    println("About to print rdd concrete classes")
+    rdd.collect().foreach(p => p match {
+      case p: Cellphone => println(p.getBrand())
+      case p: Car       => println(p.getMake())
+    })
 
+
+    println("About to print Java rdd")
     import scala.collection.JavaConversions._
     for (p <- javaRdd.collect) {
       System.out.println(p.getName)
